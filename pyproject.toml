@@ -1,61 +1,31 @@
-[build-system]
-requires = ["setuptools", "setuptools-scm"]
-build-backend = "setuptools.build_meta"
-
-[project]
-name = "bilibili-api-python"
-authors = [
-    { name = "Nemo2011", email = "yimoxia@outlook.com" },
-]
-maintainers = [
-    { name = "MoyuScript" },
-    { name = "Nemo2011" },
-]
-dynamic = ["version", "readme", "dependencies"]
-license = { text = "GPL-3.0-or-later" }
-description = "The fork of module bilibili-api. 哔哩哔哩的各种 API 调用便捷整合（视频、动态、直播等），另外附加一些常用的功能。"
-requires-python = ">=3.7"
-keywords = ["bilibili", "api", "spider"]
-classifiers = [
-    "License :: OSI Approved :: GNU General Public License v3 or later (GPLv3+)",
-    "Natural Language :: Chinese (Simplified)",
-    "Programming Language :: Python :: 3.8",
-    "Programming Language :: Python :: 3.9",
-    "Programming Language :: Python :: 3.10",
-    "Programming Language :: Python :: 3.11",
-    "Programming Language :: Python :: 3.12",
-]
-scripts = { "bilibili-api-docs" = " bilibili_api.tools.opendocs.__main__:main", "ivitools" = "bilibili_api.tools.ivitools.__main__:main" }
-
-[tool.setuptools.dynamic]
-version = { attr = "bilibili_api.BILIBILI_API_VERSION" }
-readme = { file = ["README.md"], content-type = "text/markdown" }
-dependencies = { file = ["requirements.txt"] }
+[tool.poetry]
+name = "bilibili-api"
+version = "0.1.0"
+description = ""
+authors = ["Your Name <you@example.com>"]
+readme = "README.md"
 
 [tool.poetry.dependencies]
-python = "^3.8"
-requests = ">=2.32.0,<3"
+python = "^3.11"
+aiohttp = "^3.10.2"
+beautifulsoup4 = "^4.12.3"
+colorama = "^0.4.6"
+lxml = "^5.2.2"
+PyYAML = "^6.0.2"
+Brotli = "^1.1.0"
+httpx = "^0.27.0"
+qrcode = "^7.4.2"
+requests = "^2.32.3"
+apscheduler = "^3.10.4"
+rsa = "^4.9"
+pillow = "^10.4.0"
+tqdm = "^4.66.5"
+yarl = "^1.9.4"
+pycryptodomex = "^3.20.0"
+qrcode-terminal = "^0.8"
 
-[tool.setuptools]
-packages = [
-    "bilibili_api",
-    "bilibili_api.utils",
-    "bilibili_api.exceptions",
-    "bilibili_api.errors",
-    "bilibili_api.tools",
-    "bilibili_api.tools.opendocs",
-    "bilibili_api.tools.ivitools",
-    "bilibili_api.tools.parser",
-    "bilibili_api._pyinstaller",
-]
 
-[tool.setuptools.package-data]
-"*" = [
-    "data/**/*.*",
-    "py.typed",
-    "requirements.txt",
-    "data/*.*",
-    "data/article/*.*",
-    "data/geetest/*.*",
-    "data/corerespond/*.*",
-]
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
