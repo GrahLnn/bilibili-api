@@ -32,6 +32,10 @@ version = { attr = "bilibili_api.BILIBILI_API_VERSION" }
 readme = { file = ["README.md"], content-type = "text/markdown" }
 dependencies = { file = ["requirements.txt"] }
 
+[tool.poetry.dependencies]
+python = "^3.8"
+requests = ">=2.32.0,<3"
+
 [tool.setuptools]
 packages = [
     "bilibili_api",
